@@ -2,7 +2,6 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBar } from './components/nav-bar/nav-bar';
 import { DataService } from './data.service';
-import { AllData } from './cv.types';
 import { formatDateRange, formatList, formatPhoneNumber } from './helper/formatters';
 
 @Component({

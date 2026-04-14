@@ -75,4 +75,24 @@ section {
     font-weight: 200;
     font-size: 0.9rem;
   }
+
+  span {
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 200ms;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: gray;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &:hover>span {
+      background-color: rgba(211, 211, 211, 0.509);
+    }
+  }
 }
