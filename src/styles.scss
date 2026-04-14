@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background: radial-gradient(circle at top left, #ff9797, #e0a7ff 5%, #fff 14%) no-repeat;
+  background: radial-gradient(circle at top left, #ff9797, #e0a7ff 100px, #fff 300px) no-repeat;
   backdrop-filter: blur(15px);
+  margin: 0;
+  max-height: 100vh;
+  overflow-y: hidden;
 }
