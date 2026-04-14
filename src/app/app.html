@@ -1,0 +1,73 @@
+<main class="main">
+  <section class="personal-details">
+    <h1>{{ name() }}</h1>
+    <div>
+      <span>{{ email() }}</span>
+      <span>{{ formatPhoneNumber(phone()) }}</span>
+      <span>{{ linkedin() }}</span>
+      <span>{{ github() }}</span>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="split">
+    <h3>Bio</h3>
+    <div>
+      <p>{{ bio() }}</p>
+    </div>
+  </section>
+  @for (item of skills(); track item.section_name) {
+  <section class="split">
+    <h3>{{ item.section_name }}</h3>
+    <div>
+      <p>
+        {{ formatList(item.data) }}
+      </p>
+    </div>
+  </section>
+  }
+  <section class="split">
+    <h3>Experience</h3>
+    <div class="experience">
+      @for (item of experience(); track item.position) {
+      <div>
+        <p>
+          {{ item.company }}
+        </p>
+        <p>
+          {{ item.location }}
+        </p>
+        <p>
+          {{ formatDateRange(item.dates) }}
+        </p>
+        <ul>
+          @for (highlight of item.highlights; track highlight) {
+          <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="split">
+    <h3>Education</h3>
+    <div class="education">
+      @for (item of education(); track item.institution) {
+      <div>
+        <p>
+          {{ item.institution }}
+        </p>
+        <p>
+          {{ item.degree }}, {{ item.major }} ({{ formatDateRange(item.dates) }})
+        </p>
+        <ul>
+          @for (highlight of item.highlights; track highlight) {
+          <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+  </section>
+</main>
+
+<router-outlet />
