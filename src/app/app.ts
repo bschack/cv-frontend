@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { NavBar } from './components/nav-bar/nav-bar';
 import { DataService } from './data.service';
 import { formatDateRange, formatList, formatPhoneNumber } from './helper/formatters';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar],
+  imports: [RouterOutlet, NavBar, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -15,6 +16,16 @@ export class App {
   formatList = formatList;
   formatPhoneNumber = formatPhoneNumber;
   formatDateRange = formatDateRange;
+
+  selectedSection: string | null = null;
+
+  toggleSelection(target: string) {
+    this.selectedSection = this.selectedSection === target ? null : target;
+  }
+
+  isActive(target: string) {
+    return this.selectedSection === target ? 'active' : '';
+  }
 
   ds = inject(DataService);
   name = computed(() => this.ds.data()?.personal_details.data.name ?? '');

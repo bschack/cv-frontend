@@ -1,23 +1,35 @@
-<section class="personal-details">
+<nav class="personal-details">
   <div>
     <h1>{{ name() }}</h1>
     <div>
       <span>{{ email() }}</span>
       <span>{{ formatPhoneNumber(phone()) }}</span>
-      <a href="https://{{ linkedin() }}" target="_blank"><span>LinkedIn</span></a>
-      <a href="https://{{ github() }}?tab=repositories" target="_blank"><span>GitHub</span></a>
+      <a href="https://{{ linkedin() }}" target="_blank">LinkedIn</a>
+      <a href="https://{{ github() }}?tab=repositories" target="_blank">GitHub</a>
     </div>
   </div>
-</section>
+</nav>
+<nav class="nav-bar">
+  <span (click)="toggleSelection('bio')" class="{{ isActive('bio') }}">Bio</span>
+  @for (item of skills(); track item.section_name) {
+  @if (item.section_name) {
+  <span (click)="toggleSelection(item.section_name)" class="{{ isActive(item.section_name) }}">
+    {{ item.section_name }}
+  </span>
+  }
+  }
+  <span (click)="toggleSelection('experience')" class="{{ isActive('experience') }}">Experience</span>
+  <span (click)="toggleSelection('education')" class="{{ isActive('education') }}">Education</span>
+</nav>
 <main class="main">
-  <section class="split">
+  <section *ngIf="!selectedSection || selectedSection === 'bio'" class="split" id="bio">
     <h3>Bio</h3>
     <div>
       <p>{{ bio() }}</p>
     </div>
   </section>
   @for (item of skills(); track item.section_name) {
-  <section class="split">
+  <section *ngIf="!selectedSection || selectedSection === item.section_name" class="split">
     <h3>{{ item.section_name }}</h3>
     <div>
       <p>
@@ -26,13 +38,13 @@
     </div>
   </section>
   }
-  <section class="split">
+  <section *ngIf="!selectedSection || selectedSection === 'experience'" class="split" id="experience">
     <h3>Experience</h3>
     <div class="experience">
       @for (item of experience(); track item.position) {
       <div>
         <p>
-          {{ item.position }} at {{ item.company }}
+          {{ item.position }} @ {{ item.company }}
         </p>
         <p>
           {{ item.location }} ({{ formatDateRange(item.dates) }})
@@ -46,7 +58,7 @@
       }
     </div>
   </section>
-  <section class="split">
+  <section *ngIf="!selectedSection || selectedSection === 'education'" class="split" id="education">
     <h3>Education</h3>
     <div class="education">
       @for (item of education(); track item.institution) {
