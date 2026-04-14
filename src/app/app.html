@@ -31,13 +31,10 @@
       @for (item of experience(); track item.position) {
       <div>
         <p>
-          {{ item.company }}
+          {{ item.position }} at {{ item.company }}
         </p>
         <p>
-          {{ item.location }}
-        </p>
-        <p>
-          {{ formatDateRange(item.dates) }}
+          {{ item.location }} ({{ formatDateRange(item.dates) }})
         </p>
         <ul>
           @for (highlight of item.highlights; track highlight) {
