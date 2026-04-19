@@ -119,9 +119,10 @@ export type Awards = {
 
 export type PublicationItem = {
   name: sNull,
-  authors: sNull,
+  authors: string[],
   venue: sNull,
   url: sNull,
+  proceedings: sNull,
   dates: DateRange
 }
 

@@ -2,12 +2,13 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBar } from './components/nav-bar/nav-bar';
 import { DataService } from './data.service';
-import { formatDateRange, formatList, formatPhoneNumber } from './helper/formatters';
+import { formatAuthors, formatDateRange, formatList, formatName, formatPhoneNumber } from './helper/formatters';
 import { CommonModule } from '@angular/common';
+import { Link } from './components/link/link';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, CommonModule],
+  imports: [RouterOutlet, CommonModule, Link],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -16,6 +17,8 @@ export class App {
   formatList = formatList;
   formatPhoneNumber = formatPhoneNumber;
   formatDateRange = formatDateRange;
+  formatAuthors = formatAuthors;
+  formatName = formatName;
 
   selectedSection: string | null = null;
 
@@ -41,6 +44,16 @@ export class App {
   experience = computed(() => this.ds.data()?.professional_experience.data ?? []);
 
   education = computed(() => this.ds.data()?.education.data ?? []);
+
+  certifications = computed(() => this.ds.data()?.certifications.data ?? []);
+
+  projects = computed(() => this.ds.data()?.projects.data ?? []);
+
+  awards = computed(() => this.ds.data()?.awards.data ?? []);
+
+  publications = computed(() => this.ds.data()?.publications.data ?? []);
+
+  community = computed(() => this.ds.data()?.community.data ?? []);
 
   ngOnInit() {
     this.ds.load();
