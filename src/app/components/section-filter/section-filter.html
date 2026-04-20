@@ -1,0 +1,17 @@
+<nav class="nav-bar">
+  <span (click)="toggleSelection('bio')" [class]="isActive('bio')">Bio</span>
+  @for (item of skills; track item.section_name) {
+  @if (item.section_name) {
+  <span (click)="toggleSelection(item.section_name)" [class]="isActive(item.section_name)">
+    {{ item.section_name }}
+  </span>
+  }
+  }
+  <span (click)="toggleSelection('experience')" [class]="isActive('experience')">Experience</span>
+  <span (click)="toggleSelection('education')" [class]="isActive('education')">Education</span>
+  <span (click)="toggleSelection('certifications')" [class]="isActive('certifications')">Certifications</span>
+  <span (click)="toggleSelection('projects')" [class]="isActive('projects')">Projects</span>
+  <span (click)="toggleSelection('awards')" [class]="isActive('awards')">Awards</span>
+  <span (click)="toggleSelection('publications')" [class]="isActive('publications')">Publications</span>
+  <span (click)="toggleSelection('community')" [class]="isActive('community')">Community</span>
+</nav>

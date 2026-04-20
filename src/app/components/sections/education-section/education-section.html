@@ -1,0 +1,18 @@
+@if (isVisible) {
+<section class="section" id="education">
+  <h3>Education</h3>
+  <div class="education">
+    @for (item of education; track item.institution) {
+    <div>
+      <p>
+        {{ item.institution }}
+      </p>
+      <split-width-text [leftText]="(item.degree || '') + ', ' + (item.major || '')">
+        <date-range-display [dateRange]="item.dates"></date-range-display>
+      </split-width-text>
+      <highlight-list [highlights]="item.highlights || []"></highlight-list>
+    </div>
+    }
+  </div>
+</section>
+}

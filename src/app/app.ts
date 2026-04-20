@@ -1,36 +1,42 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavBar } from './components/nav-bar/nav-bar';
 import { DataService } from './data.service';
-import { formatAuthors, formatDateRange, formatList, formatName, formatPhoneNumber } from './helper/formatters';
 import { CommonModule } from '@angular/common';
-import { Link } from './components/link/link';
+import { PersonalHeader } from './components/personal-header/personal-header';
+import { SectionFilter } from './components/section-filter/section-filter';
+import { BioSection } from './components/sections/bio-section/bio-section';
+import { SkillsSection } from './components/sections/skills-section/skills-section';
+import { ExperienceSection } from './components/sections/experience-section/experience-section';
+import { EducationSection } from './components/sections/education-section/education-section';
+import { CertificationsSection } from './components/sections/certifications-section/certifications-section';
+import { ProjectsSection } from './components/sections/projects-section/projects-section';
+import { AwardsSection } from './components/sections/awards-section/awards-section';
+import { PublicationsSection } from './components/sections/publications-section/publications-section';
+import { CommunitySection } from './components/sections/community-section/community-section';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, Link],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    PersonalHeader,
+    SectionFilter,
+    BioSection,
+    SkillsSection,
+    ExperienceSection,
+    EducationSection,
+    CertificationsSection,
+    ProjectsSection,
+    AwardsSection,
+    PublicationsSection,
+    CommunitySection
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('cv-frontend');
-  formatList = formatList;
-  formatPhoneNumber = formatPhoneNumber;
-  formatDateRange = formatDateRange;
-  formatAuthors = formatAuthors;
-  formatName = formatName;
-
-  selectedSection: string | null = null;
-
-  toggleSelection(target: string) {
-    this.selectedSection = this.selectedSection === target ? null : target;
-  }
-
-  isActive(target: string) {
-    return this.selectedSection === target ? 'active' : '';
-  }
-
   ds = inject(DataService);
+
   name = computed(() => this.ds.data()?.personal_details.data.name ?? '');
   email = computed(() => this.ds.data()?.personal_details.data.email ?? '');
   phone = computed(() => this.ds.data()?.personal_details.data.phone ?? '');

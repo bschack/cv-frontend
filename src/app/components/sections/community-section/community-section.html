@@ -1,0 +1,18 @@
+@if (isVisible) {
+<section class="section" id="community">
+  <h3>Community</h3>
+  <div class="education">
+    @for (item of community; track item.name) {
+    <div>
+      <p>
+        {{ item.name }}
+      </p>
+      <split-width-text [leftText]="item.role || ''">
+        <date-range-display [dateRange]="item.dates"></date-range-display>
+      </split-width-text>
+      <highlight-list [highlights]="item.highlights || []"></highlight-list>
+    </div>
+    }
+  </div>
+</section>
+}

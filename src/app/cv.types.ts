@@ -57,7 +57,7 @@ export type ExperienceItem = {
   level: sNull,
   location: sNull,
   dates: DateRange,
-  highlights: sNull[]
+  highlights: string[]
 }
 
 export type Experience = {
@@ -96,7 +96,7 @@ export type ProjectItem = {
   name: sNull,
   organizations: sNull[],
   dates: DateRange,
-  highlights: sNull[]
+  highlights: string[]
 }
 
 export type Projects = {
@@ -109,7 +109,7 @@ export type AwardItem = {
   organization: sNull,
   url: sNull,
   dates: DateRange,
-  highlights: sNull[]
+  highlights: string[]
 }
 
 export type Awards = {
@@ -135,7 +135,7 @@ export type CommunityItem = {
   name: sNull,
   role: sNull,
   dates: DateRange,
-  highlights: sNull[]
+  highlights: string[]
 }
 
 export type Community = {

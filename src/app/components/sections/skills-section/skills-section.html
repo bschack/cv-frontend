@@ -1,0 +1,12 @@
+@for (item of skills; track item.section_name) {
+@if (item.section_name && isVisible(item.section_name)) {
+<section class="section">
+  <h3>{{ item.section_name }}</h3>
+  <div>
+    <p>
+      {{ formatList(item.data) }}
+    </p>
+  </div>
+</section>
+}
+}

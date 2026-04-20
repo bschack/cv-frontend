@@ -1,0 +1,18 @@
+@if (isVisible) {
+<section class="section" id="projects">
+  <h3>Projects</h3>
+  <div class="education">
+    @for (item of projects; track item.name) {
+    <div>
+      <p>
+        {{ item.name }}
+      </p>
+      <split-width-text [leftText]="(item.organizations || []).join(', ')">
+        <date-range-display [dateRange]="item.dates"></date-range-display>
+      </split-width-text>
+      <highlight-list [highlights]="item.highlights || []"></highlight-list>
+    </div>
+    }
+  </div>
+</section>
+}

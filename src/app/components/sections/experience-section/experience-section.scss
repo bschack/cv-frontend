@@ -1,0 +1,13 @@
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-styles;
+}
+
+.experience {
+  @include vertical-list-styles;
+}
+
+.sub-text {
+  @include sub-text-styles;
+}

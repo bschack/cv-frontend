@@ -1,0 +1,72 @@
+$screen-size-small: 500px;
+$screen-size-medium: 900px;
+
+@mixin section-styles {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+
+  @media (max-width: $screen-size-medium) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &>h3 {
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 0;
+    color: black;
+  }
+
+  &>div {
+    width: 75%;
+
+    @media (max-width: $screen-size-medium) {
+      width: 100%;
+    }
+  }
+
+  p,
+  ul {
+    font-size: 1rem;
+    margin: 0;
+    color: gray;
+    line-height: 1.5;
+
+    svg {
+      height: 1rem;
+    }
+  }
+}
+
+@mixin vertical-list-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@mixin split-width-styles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.25rem;
+  margin: 0;
+  font-style: italic;
+
+  @media (max-width: $screen-size-small) {
+    flex-direction: column;
+  }
+}
+
+@mixin sub-text-styles {
+  font-size: 0.7rem;
+  color: rgba(128, 128, 128, 1);
+}

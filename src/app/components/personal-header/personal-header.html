@@ -1,0 +1,12 @@
+<nav class="personal-details">
+  <div>
+    <h1>{{ formatName(name).ff }}<span>{{ formatName(name).fl }}</span> {{ formatName(name).lf }}<span>{{
+        formatName(name).ll }}</span></h1>
+    <div>
+      <span>{{ email }}</span>
+      <span>{{ formatPhoneNumber(phone) }}</span>
+      <a href="https://{{ linkedin }}" target="_blank">LinkedIn</a>
+      <a href="https://{{ github }}?tab=repositories" target="_blank">GitHub</a>
+    </div>
+  </div>
+</nav>

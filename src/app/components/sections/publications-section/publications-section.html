@@ -1,0 +1,19 @@
+@if (isVisible) {
+<section class="section" id="publications">
+  <h3>Publications</h3>
+  <div class="education">
+    @for (item of publications; track item.name) {
+    <div>
+      <p>
+        {{ formatAuthors(item.authors) }}, <i>{{ item.name }}, {{ item.venue }}</i>, {{ item.proceedings }}, <date-range-display [dateRange]="item.dates"></date-range-display>
+        @if (item.url) {
+        <a href="{{ item.url }}" target="_blank">
+          <link-icon />
+        </a>
+        }
+      </p>
+    </div>
+    }
+  </div>
+</section>
+}

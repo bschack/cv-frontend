@@ -1,0 +1,38 @@
+@use '../../styles/mixins' as *;
+
+.nav-bar {
+  position: absolute;
+  right: 50%;
+  top: calc(200px + 4rem);
+  transform: translateX(-550px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: gray;
+  font-weight: 200;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  user-select: none;
+
+  @media (max-width: 1500px) {
+    display: none;
+  }
+
+  span {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 200ms;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-right: 0.5px solid transparent;
+
+    &:hover {
+      border-right: 0.5px solid rgba(128, 128, 128, 0.5);
+    }
+
+    &.active {
+      border-right: 0.5px solid rgba(128, 128, 128, 0.9);
+    }
+  }
+}
